@@ -7,4 +7,3 @@ New line for push branch tutorial.
 This repository is built step by step in the tutorial.
 
 It now includes steps from GitHub!
-
