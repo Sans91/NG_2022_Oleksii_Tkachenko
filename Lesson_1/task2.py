@@ -31,6 +31,7 @@ match process:
             result = numberA / numberB
         except:
             result = "Infinity"
+    
     case "+":
         while(type(numberB) != int):
             print("please input number B")
@@ -39,6 +40,7 @@ match process:
             except:
                 print("you have not entered a number, try again") 
         result = numberA + numberB
+    
     case "-":
         while(type(numberB) != int):
             print("please input number B")
@@ -47,6 +49,7 @@ match process:
             except:
                 print("you have not entered a number, try again") 
         result = numberA - numberB
+    
     case "*":
         while(type(numberB) != int):
             print("please input number B")
@@ -55,8 +58,10 @@ match process:
             except:
                 print("you have not entered a number, try again") 
         result = numberA * numberB    
+    
     case "square":
         square = numberA * numberA
+    
     case "sqroot":
         #finding whole part of a number by finding square higher than square of our number
         while(square <= numberA):
@@ -65,6 +70,7 @@ match process:
         n -= 1 #reverting n to when its not higher than number
         numberB = n
         square = 0 #nullifying variable for next calculation
+        
         #finding .1 part of a number by finding square higher than square of our number
         while(square <= numberA):  
             n += 0.1
@@ -72,10 +78,14 @@ match process:
         numberB = n - 0.1
         square = 0
         n -= 0.1
+        
         #finding .01 part of a number by finding square higher than square of our number
         while(square <= numberA):
             n+=0.01
             square = n * n
-        result = n
+        
+        #rounding result to .01
+        result = round(n, 2)
+
 #output of any result that we get
 print(result)
