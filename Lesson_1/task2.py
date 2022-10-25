@@ -5,10 +5,10 @@ numberB = ""
 process = ""
 
 #User makes an input number A, while loop for excepting misinput
-while(type(numberA) != int):
+while(type(numberA) != float):
     print("please input number A")
     try:    #trying to catch misinput
-        numberA = int(input())
+        numberA = float(input())
     except:
         print("you have not entered a number, try again")   
 
@@ -20,10 +20,10 @@ while(process != "/" and process != "*" and process != "+" and process != "-" an
 #Matching user input
 match process:
     case "/":
-        while(type(numberB) != int):
+        while(type(numberB) != float):
             print("please input number B")
             try:
-                numberB = int(input())
+                numberB = float(input())
             except:
                 print("you have not entered a number, try again")  
         #trying except the zerodivisionproblem
@@ -33,28 +33,28 @@ match process:
             result = "Infinity"
     
     case "+":
-        while(type(numberB) != int):
+        while(type(numberB) != float):
             print("please input number B")
             try:
-                numberB = int(input())
+                numberB = float(input())
             except:
                 print("you have not entered a number, try again") 
         result = numberA + numberB
     
     case "-":
-        while(type(numberB) != int):
+        while(type(numberB) != float):
             print("please input number B")
             try:
-                numberB = int(input())
+                numberB = float(input())
             except:
                 print("you have not entered a number, try again") 
         result = numberA - numberB
     
     case "*":
-        while(type(numberB) != int):
+        while(type(numberB) != float):
             print("please input number B")
             try:
-                numberB = int(input())
+                numberB = float(input())
             except:
                 print("you have not entered a number, try again") 
         result = numberA * numberB    
