@@ -1,4 +1,3 @@
-time = ""
 #user types in seconds number
 print("Please input the amount of seconds")
 time = int(input(">>"))

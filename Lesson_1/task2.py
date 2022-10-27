@@ -1,7 +1,5 @@
 square = 0
 n = 0
-numberA = ""
-numberB = ""
 
 #waiting for user input and converting it into a number(float) type
 print("please input number A")
