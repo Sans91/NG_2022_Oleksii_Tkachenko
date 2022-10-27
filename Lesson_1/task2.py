@@ -37,28 +37,34 @@ match input(">>"):
     
     case "sqroot":
         #finding whole part of a number by finding square higher than square of our number
-        while(square <= numberA):
+        while(square < numberA):
             n += 1
             square = n * n
-        n -= 1 #reverting n to when its not higher than number
-        numberB = n
-        square = 0 #nullifying variable for next calculation
-        
-        #finding .1 part of a number by finding square higher than square of our number
-        while(square <= numberA):  
-            n += 0.1
-            square = n * n
-        n -= 0.1
-        numberB = n
-        square = 0
 
-        #finding .01 part of a number by finding square higher than square of our number
-        while(square <= numberA):
-            n+=0.01
-            square = n * n
+        #if it is perfect square, we just making it without a .0 point
+        if square == numberA:
+            int(n)
+            result = n
+        else:
+            n -= 1 #reverting the change to not get higher
+            square = 0 #nullifying variable for next calculation
+
         
-        #rounding result to .01
-        result = round(n, 2)
+            #finding .1 part of a number by finding square higher than square of our number
+            while(square < numberA):  
+                n += 0.1
+                square = n * n
+            n -= 0.1
+            square = 0
+
+            #finding .01 part of a number by finding square higher than square of our number
+            while(square < numberA):
+                n+=0.01
+                square = n * n
+            
+
+            #rounding result to .01
+            result = round(n, 2)
 
 #output of any result that we get
 print(result)
