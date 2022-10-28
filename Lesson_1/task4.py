@@ -12,7 +12,6 @@ if D > 0:
     x2 = (-b - Droot)/(2 * a)
     print(f"x1 ={x1},\nx2 = {x2}")
 elif D == 0:
-    Droot = math.sqrt(D)
     x = -b /  (2 * a)
     print(f"x = {x}")
 else:
