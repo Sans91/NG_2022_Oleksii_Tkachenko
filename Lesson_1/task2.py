@@ -1,16 +1,13 @@
 square = 0
-n = 0
+bufferNumber = 0
 
 #waiting for user input and converting it into a number(float) type
-print("please input number A")
-numberA = float(input(">>"))   
+numberA = float(input("please input number A\n>>"))   
 
-print("please enter process you want\n(available process: /, *, +, -, square, sqroot)")
+numberB = float(input("please input number B\n>>"))
 #Matching user input
-match input(">>"):
+match input("please enter process you want\n(available process: /, *, +, -, square, sqroot)\n>>"):
     case "/":
-        print("please input number B")
-        numberB = float(input(">>"))
         #trying except the zerodivisionproblem
         try:
             result = numberA / numberB
@@ -18,53 +15,30 @@ match input(">>"):
             result = "Infinity"
     
     case "+":
-        print("please input number B")
-        numberB = float(input(">>"))
         result = numberA + numberB
     
     case "-":
-        print("please input number B")
-        numberB = float(input(">>"))
         result = numberA - numberB
     
     case "*":
-        print("please input number B")
-        numberB = float(input(">>"))
         result = numberA * numberB    
     
     case "square":
-        square = numberA * numberA
+        result = numberA * numberA
     
     case "sqroot":
-        #finding whole part of a number by finding square higher than square of our number
+        #finding root by approximation of other square number
         while(square < numberA):
-            n += 1
-            square = n * n
-
-        #if it is perfect square, we just making it without a .0 point
-        if square == numberA:
-            int(n)
-            result = n
-        else:
-            n -= 1 #reverting the change to not get higher
-            square = 0 #nullifying variable for next calculation
-
-        
-            #finding .1 part of a number by finding square higher than square of our number
-            while(square < numberA):  
-                n += 0.1
-                square = n * n
-            n -= 0.1
-            square = 0
-
-            #finding .01 part of a number by finding square higher than square of our number
-            while(square < numberA):
-                n+=0.01
-                square = n * n
+            bufferNumber+=0.01
             
+            #rounding result for no crazy numbers
+            bufferNumber = round(bufferNumber, 2)
+            
+            square = bufferNumber * bufferNumber
 
-            #rounding result to .01
-            result = round(n, 2)
+
+
+        result = bufferNumber
 
 #output of any result that we get
 print(result)
