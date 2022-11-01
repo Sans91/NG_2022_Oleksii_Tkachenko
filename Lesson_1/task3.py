@@ -7,7 +7,7 @@ minutes = int(seconds / 60)
 hours = int(minutes / 60)
 days = int(hours / 24)
 
-#making minutes and hours not exceed their limit
+#making seconds, minutes and hours not exceed their limit
 seconds %= 60
 minutes %= 60
 hours %= 24
