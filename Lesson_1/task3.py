@@ -1,11 +1,10 @@
 #user types in seconds number
-print("Please input the amount of seconds")
-seconds = int(input(">>"))
+seconds = int(input("Please input the amount of second\n>>"))
 
-#converting to int type for no floating point
-minutes = int(seconds / 60)
-hours = int(minutes / 60)
-days = int(hours / 24)
+#counting minutes, hours and days by using floor division for no floating point
+minutes = seconds // 60
+hours = minutes // 60
+days = hours // 24
 
 #making seconds, minutes and hours not exceed their limit
 seconds %= 60
