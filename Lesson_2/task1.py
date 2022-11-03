@@ -1,22 +1,20 @@
-
 dct = {
 
 }
-character = 97
-buffer = []
+arr = []
 string = input("input your string\n>>")
+for char in string:
+    arr.append(ord(char))
+arr.sort()
+for char in arr:
+    print(chr(char), end="")
 
-while character < 123:
-    characterCount = string.count(chr(character))
-    if characterCount != 0:
-        print(f"{chr(character)} = {characterCount}", end= " ")
-        dct[chr(character)] = characterCount
-        buffer.append(dct[chr(character)])
-        
-    character += 1
-buffer.sort()
-
+charSet = set(string)
 print("")
-for char in buffer:
-    print(f"{dct.get(char)} = {char}", end = " ")
+
+for char in charSet:
+    characterCount = string.count(char)
+    dct[char] = characterCount
+    print(f"{dct[char]} = {char} ")            
+
     
