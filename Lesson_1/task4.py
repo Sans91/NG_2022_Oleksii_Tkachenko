@@ -1,6 +1,3 @@
-Droot = 0
-square = 0
-
 #getting input from user on quadratic equation (ax^2 + bx + c = 0)
 a = float(input("type number a\n>>"))
 b = float(input("type number b\n>>"))
@@ -11,11 +8,7 @@ D = b * b - 4 * a * c
 #if Discriminant is greater than 0, we need to find two variants of x with formula which has Discriminant root
 if D > 0:
     #finding root
-    while(square < D):
-        Droot+=0.01       
-        #rounding result for no crazy numbers
-        Droot = round(Droot, 2)
-        square = Droot * Droot
+    Droot = pow(D, 1/2)
     x1 = (-b + Droot)/(2 * a)
     x2 = (-b - Droot)/(2 * a)
     print(f"x1 = {x1},\nx2 = {x2}")
