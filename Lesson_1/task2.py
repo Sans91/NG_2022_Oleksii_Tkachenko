@@ -1,6 +1,3 @@
-square = 0
-bufferNumber = 0
-
 #waiting for user input and converting it into a number(float) type
 numberA = float(input("please input number A\n>>"))   
 
@@ -24,21 +21,10 @@ match input("please enter process you want\n(available process: /, *, +, -, squa
         result = numberA * numberB    
     
     case "square":
-        result = numberA * numberA
+        result = pow(numberA, 2)
     
     case "sqroot":
-        #finding root by approximation of other square number
-        while(square < numberA):
-            bufferNumber+=0.01
-            
-            #rounding result for no crazy numbers
-            bufferNumber = round(bufferNumber, 2)
-            
-            square = bufferNumber * bufferNumber
-
-
-
-        result = bufferNumber
+        result = round(pow(numberA, 1/2), 2)
 
 #output of any result that we get
 print(result)
