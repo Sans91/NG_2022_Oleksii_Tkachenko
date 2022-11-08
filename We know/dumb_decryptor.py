@@ -1,24 +1,31 @@
+number = 0
+textList = []
+alphabetHigh = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(",")
 
-buffer = ""
-print("input a text to decypher")
-text = input(">>")
 
-print("input for how much you want it to shift")
-numberOfShifts = int(input(">>"))
-for element in text:
-    c = ord(element)
-    if c >= 65 and c<= 90:
-            c = c + numberOfShifts
-            while c > 90:
-                d = c % 90
-                c = 64 + d
-            element = chr(c)  
-    if c >= 97 and c<= 122:
-            c = c + numberOfShifts
-            while c >= 123:
-                d = c % 123
-                c = 97 + d
-            element = chr(c)    
-    buffer += element
-    
-print(buffer)
+def AddNumToArrOfStr(number):
+    try:
+        textList[number] += element
+    except:
+        textList.append(element)
+    number += 1
+    return number
+userText = input("input a text to decypher\n>>")
+userText = userText.upper()
+for element in userText:
+    if element in alphabetHigh:
+        while(number < 26):
+            shiftedNumber = alphabetHigh.index(element) + number
+            if shiftedNumber >= 26:
+                shiftedNumber %= len(alphabetHigh)
+            element = alphabetHigh[shiftedNumber]
+            number = AddNumToArrOfStr(number)
+
+    else:
+        while(number < 26):
+            number = AddNumToArrOfStr(number)
+
+    number = 0
+
+for num in range(26):
+    print(f"{num}. {textList[num]}")
