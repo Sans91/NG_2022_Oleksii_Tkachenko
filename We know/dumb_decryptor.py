@@ -1,31 +1,37 @@
-number = 0
 textList = []
 alphabetHigh = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(",")
 
-
-def AddNumToArrOfStr(number):
+#function that tries to add characters into string in list
+#if there are no way to add character in string in list making string in the list
+def AddNumToArrOfStr(numberOfIter):
     try:
-        textList[number] += element
+        textList[numberOfIter] += element
     except:
         textList.append(element)
-    number += 1
-    return number
+    numberOfIter += 1
+    return numberOfIter
+
+#waiting for user input and converting the text to uppercase
 userText = input("input a text to decypher\n>>")
 userText = userText.upper()
+
+#loop to shift every letter in userText string
 for element in userText:
+    numberOfIter = 0
+    #if letter in text are present in alphabet set
     if element in alphabetHigh:
-        while(number < 26):
-            shiftedNumber = alphabetHigh.index(element) + number
-            if shiftedNumber >= 26:
+        #making it go through 26 variations of text
+        while(numberOfIter< len(alphabetHigh)):
+            #making shifted numberOfIterbased on index of letter
+            #from text + number of iterations
+            shiftedNumber = alphabetHigh.index(element) + numberOfIter
+            if shiftedNumber >= len(alphabetHigh):
                 shiftedNumber %= len(alphabetHigh)
             element = alphabetHigh[shiftedNumber]
-            number = AddNumToArrOfStr(number)
-
+            numberOfIter= AddNumToArrOfStr(numberOfIter)
     else:
-        while(number < 26):
-            number = AddNumToArrOfStr(number)
+        while(numberOfIter< len(alphabetHigh)):
+            numberOfIter = AddNumToArrOfStr(numberOfIter)
 
-    number = 0
-
-for num in range(26):
+for num in range(len(alphabetHigh)):
     print(f"{num}. {textList[num]}")
