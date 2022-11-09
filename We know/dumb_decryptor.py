@@ -20,13 +20,10 @@ userText = input("input a text to decypher\n>>")
 #loop to shift every letter in userText string
 for element in userText:
     numberOfIter = 0
+    #making it go through 26 variations of text
     while(numberOfIter< len(alphabetHigh)):
         #if letter in text are present in alphabet set
         if element in alphabetHigh:
-            
-            #making it go through 26 variations of text
-
-                
                 #making shifted numberOfIterbased on index of letter
                 #from text + number of iterations
                 shiftedNumber = alphabetHigh.index(element) + numberOfIter
