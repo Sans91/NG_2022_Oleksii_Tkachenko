@@ -20,44 +20,44 @@ userText = input("input a text to decypher\n>>")
 #loop to shift every letter in userText string
 for element in userText:
     numberOfIter = 0
-    
-    #if letter in text are present in alphabet set
-    if element in alphabetHigh:
-        
-        #making it go through 26 variations of text
-        while(numberOfIter< len(alphabetHigh)):
+    while(numberOfIter< len(alphabetHigh)):
+        #if letter in text are present in alphabet set
+        if element in alphabetHigh:
             
-            #making shifted numberOfIterbased on index of letter
-            #from text + number of iterations
-            shiftedNumber = alphabetHigh.index(element) + numberOfIter
-            
-            #making it not exceed the alphabetHigh length
-            if shiftedNumber >= len(alphabetHigh):
-                shiftedNumber %= len(alphabetHigh)
-            
-            #assigning shifted letter to shifted element variable
-            elementShifted = alphabetHigh[shiftedNumber]
+            #making it go through 26 variations of text
 
-            numberOfIter= AddNumToArrOfStr(numberOfIter)
-    elif element in alphabetLow:
-        while(numberOfIter< len(alphabetHigh)):
-            
-            #making shifted numberOfIterbased on index of letter
-            #from text + number of iterations
-            shiftedNumber = alphabetLow.index(element) + numberOfIter
-            
-            #making it not exceed the alphabetLow length
-            if shiftedNumber >= len(alphabetLow):
-                shiftedNumber %= len(alphabetLow)
-            
-            #assigning shifted letter to shifted element variable
-            elementShifted = alphabetLow[shiftedNumber]
+                
+                #making shifted numberOfIterbased on index of letter
+                #from text + number of iterations
+                shiftedNumber = alphabetHigh.index(element) + numberOfIter
+                
+                #making it not exceed the alphabetHigh length
+                if shiftedNumber >= len(alphabetHigh):
+                    shiftedNumber %= len(alphabetHigh)
+                
+                #assigning shifted letter to shifted element variable
+                elementShifted = alphabetHigh[shiftedNumber]
 
-            numberOfIter= AddNumToArrOfStr(numberOfIter)
-    #else if its a letter that doesn't match the alphabet, don't shift it
-    else:
-        while(numberOfIter< len(alphabetHigh)):
-            numberOfIter = AddNumToArrOfStr(numberOfIter)
+                numberOfIter= AddNumToArrOfStr(numberOfIter)
+        elif element in alphabetLow:
+
+                
+                #making shifted numberOfIterbased on index of letter
+                #from text + number of iterations
+                shiftedNumber = alphabetLow.index(element) + numberOfIter
+                
+                #making it not exceed the alphabetLow length
+                if shiftedNumber >= len(alphabetLow):
+                    shiftedNumber %= len(alphabetLow)
+                
+                #assigning shifted letter to shifted element variable
+                elementShifted = alphabetLow[shiftedNumber]
+
+                numberOfIter= AddNumToArrOfStr(numberOfIter)
+        #else if its a letter that doesn't match the alphabet, don't shift it
+        else:
+                textList[numberOfIter] += element
+                numberOfIter += 1
 
 #printing texts of text list 
 for num in range(len(alphabetHigh)):
