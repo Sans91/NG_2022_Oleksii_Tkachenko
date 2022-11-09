@@ -13,7 +13,7 @@ def AddNumToArrOfStr(numberOfIter):
     numberOfIter += 1
     return numberOfIter
 
-#waiting for user input and converting the text to uppercase
+#waiting for user input
 userText = input("input a text to decypher\n>>")
 
 
