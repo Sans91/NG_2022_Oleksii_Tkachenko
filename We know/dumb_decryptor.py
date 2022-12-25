@@ -1,45 +1,17 @@
 textList = []
-alphabetHigh = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z".split(",")
-alphabetLow = list(map(lambda x: x.lower(), alphabetHigh))
-
-#function that tries to add characters into string in list
-#if there are no way to add character in string in list making string in the list
-#also return a increased by one number of iterations
-def AddNumToArrOfStr(numberOfIter):
-    try:
-        textList[numberOfIter] += elementShifted
-    except:
-        textList.append(elementShifted)
-    numberOfIter += 1
-    return numberOfIter
+alphabetLow = "abcdefghijklmnopqrstuvwxyz"
+numberOfIter = 0
 
 #waiting for user input
-userText = input("input a text to decypher\n>>")
+userText = input("input a text to decypher\n>>").lower()
 
-
-#loop to shift every letter in userText string
-for element in userText:
-    numberOfIter = 0
-    #making it go through 26 variations of text
-    while(numberOfIter< len(alphabetHigh)):
+#making it go through 26 variations of text
+while(numberOfIter< len(alphabetLow)):
+    #loop to shift every letter in userText string
+    for element in userText:
         #if letter in text are present in alphabet set
-        if element in alphabetHigh:
-                #making shifted numberOfIterbased on index of letter
-                #from text + number of iterations
-                shiftedNumber = alphabetHigh.index(element) + numberOfIter
-                
-                #making it not exceed the alphabetHigh length
-                if shiftedNumber >= len(alphabetHigh):
-                    shiftedNumber %= len(alphabetHigh)
-                
-                #assigning shifted letter to shifted element variable
-                elementShifted = alphabetHigh[shiftedNumber]
-
-                numberOfIter= AddNumToArrOfStr(numberOfIter)
-        elif element in alphabetLow:
-
-                
-                #making shifted numberOfIterbased on index of letter
+        if element in alphabetLow:
+                #making shifted number based on index of letter
                 #from text + number of iterations
                 shiftedNumber = alphabetLow.index(element) + numberOfIter
                 
@@ -50,12 +22,18 @@ for element in userText:
                 #assigning shifted letter to shifted element variable
                 elementShifted = alphabetLow[shiftedNumber]
 
-                numberOfIter= AddNumToArrOfStr(numberOfIter)
+                #tries to add characters into string in list
+                #if there are no way to add character in string in list,
+                #its making new string in the list
+                try:
+                    textList[numberOfIter] += elementShifted
+                except:
+                    textList.append(elementShifted)
         #else if its a letter that doesn't match the alphabet, don't shift it
         else:
                 textList[numberOfIter] += element
-                numberOfIter += 1
+    numberOfIter+=1
 
 #printing texts of text list 
-for num in range(len(alphabetHigh)):
+for num in range(len(alphabetLow)):
     print(f"{num}. {textList[num]}")
