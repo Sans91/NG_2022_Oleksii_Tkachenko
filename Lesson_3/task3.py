@@ -1,31 +1,12 @@
-def Counting(letter):
-    return userInput.count(letter)
-userInput = input("your string: ").upper()
-A = Counting("A")
-B = Counting("B")
-C = Counting("C")
-D = Counting("D")
-E = Counting("E")
-F = Counting("F")
-G = Counting("G")
-H = Counting("H")
-I = Counting("I")
-J = Counting("J")
-K = Counting("K")
-L = Counting("L")
-M = Counting("M")
-N = Counting("N")
-O = Counting("O")
-P = Counting("P")
-Q = Counting("Q")
-R = Counting("R")
-S = Counting("S")
-T = Counting("T")
-U = Counting("U")
-V = Counting("V")
-W = Counting("W")
-X = Counting("X")
-Y = Counting("Y")
-Z = Counting("Z")
-print(f"A = {A}, B = {B}, C = {C}, D = {D}, E = {E}, F = {F}, G = {G}, H = {H}, I = {I}, J = {J}, K = {K}, L = {L}, M = {M}, N = {N}, O = {O}, P = {P},\nQ = {Q}, R = {R}, S = {S}, T = {T} "
-f"U = {U}, V = {V}, W = {W}, X = {X}, Y = {Y}, Z = {Z}")
+def countTheLetters(letter, inputSet):
+    print(f"{letter} = {userInput.count(letter)}")
+    inputSet = inputSet[0:-1]
+    try:
+        countTheLetters(inputSet[-1], inputSet)
+    except:
+        print("finished")
+
+userInput = input("your string: ")
+inputSet = list(set(userInput))
+print(list(set(userInput)))
+countTheLetters(inputSet[-1], inputSet)
